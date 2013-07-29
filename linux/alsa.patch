@@ -1,0 +1,20 @@
+diff --git a/sound/usb/mixer.c b/sound/usb/mixer.c
+index 298070e..03e6e15 100644
+--- a/sound/usb/mixer.c
++++ b/sound/usb/mixer.c
+@@ -2267,6 +2267,7 @@ static int snd_usb_mixer_status_create(struct usb_mixer_interface *mixer)
+ int snd_usb_create_mixer(struct snd_usb_audio *chip, int ctrlif,
+ 			 int ignore_error)
+ {
++    /*
+ 	static struct snd_device_ops dev_ops = {
+ 		.dev_free = snd_usb_mixer_dev_free
+ 	};
+@@ -2319,6 +2320,7 @@ int snd_usb_create_mixer(struct snd_usb_audio *chip, int ctrlif,
+ _error:
+ 	snd_usb_mixer_free(mixer);
+ 	return err;
++    */
+ }
+ 
+ void snd_usb_mixer_disconnect(struct list_head *p)
