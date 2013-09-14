@@ -1,0 +1,35 @@
+diff --git a/sound/usb/quirks-table.h b/sound/usb/quirks-table.h
+index 8b75bcf..6bc019c 100644
+--- a/sound/usb/quirks-table.h
++++ b/sound/usb/quirks-table.h
+@@ -3420,6 +3420,30 @@ YAMAHA_DEVICE(0x7010, "UB99"),
+ },
+ 
+ {
++	/* KEF X300A */
++	USB_DEVICE(0x27ac, 0x1000),
++	.driver_info = (unsigned long) & (const struct snd_usb_audio_quirk) {
++		.vendor_name = "KEF",
++		.product_name = "KEF X300A Speaker",
++		.ifnum = QUIRK_ANY_INTERFACE,
++		.type = QUIRK_COMPOSITE,
++		.data = (const struct snd_usb_audio_quirk[]) {
++			{
++				.ifnum = 0,
++				.type = QUIRK_AUDIO_STANDARD_INTERFACE
++			},
++			{
++				.ifnum = 1,
++				.type = QUIRK_AUDIO_STANDARD_INTERFACE
++			},
++			{
++				.ifnum = -1
++			}
++		}
++	}
++},
++
++{
+ 	/*
+ 	 * Some USB MIDI devices don't have an audio control interface,
+ 	 * so we have to grab MIDI streaming interfaces here.

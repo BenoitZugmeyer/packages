@@ -19,7 +19,7 @@ source=("http://www.kernel.org/pub/linux/kernel/v3.x/${_srcname}.tar.xz"
         # standard config files for mkinitcpio ramdisk
         'linux.preset'
         'change-default-console-loglevel.patch'
-        'alsa.patch')
+        'kef_x300a.patch')
 _kernelname=${pkgbase#linux}
 
 # module.symbols md5sums
@@ -42,7 +42,7 @@ prepare() {
   # (relevant patch sent upstream: https://lkml.org/lkml/2011/7/26/227)
   patch -Np1 -i "${srcdir}/change-default-console-loglevel.patch"
 
-  patch -Np1 -i "${srcdir}/alsa.patch"
+  patch -Np1 -i "${srcdir}/kef_x300a.patch"
 
   if [ "${CARCH}" = "x86_64" ]; then
     cat "${srcdir}/config.x86_64" > ./.config
@@ -330,4 +330,5 @@ md5sums=('4f25cd5bec5f8d5a7d935b3f2ccb8481'
          'e55ce3dd5fead07eed8a6781a57c1b1b'
          'eb14dcfd80c00852ef81ded6e826826a'
          'f3def2cefdcbb954c21d8505d23cc83c'
-         'daa76ff348d09161910843e438cd63a8')
+         'daa76ff348d09161910843e438cd63a8'
+         'd4ec3ec0eb4e9515b776a5c042658acc')
