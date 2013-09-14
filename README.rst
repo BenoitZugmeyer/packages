@@ -53,3 +53,4 @@ Changes:
 .. _chromium: https://www.archlinux.org/packages/extra/x86_64/chromium/
 .. _linux: https://www.archlinux.org/packages/core/x86_64/linux/
 .. _George: http://article.gmane.org/gmane.linux.alsa.user/37231
+.. _xorg-launch-helper: https://aur.archlinux.org/packages/xorg-launch-helper/
