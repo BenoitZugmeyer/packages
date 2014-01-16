@@ -1,3 +1,4 @@
 linux-*.tar.xz
 patch-*.xz
 config.x86_64.last
+linux.install.pkg
