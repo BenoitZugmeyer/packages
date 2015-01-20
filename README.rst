@@ -16,7 +16,7 @@ So this is the official ArhLinux vim package with the `suggested patch`_ applied
 awesome
 =======
 
-This is the `AUR awesome-git PKGBUILD`_ targeting the `Elv13 useless_gap_v1` branch (3.5.6 branch
+This is the `AUR awesome-git PKGBUILD`_ targeting the `Elv13 useless_gap_v1`_ branch (3.5.6 branch
 with a patch to add gaps between clients).
 
 .. _Unite: https://github.com/Shougo/unite.vim
