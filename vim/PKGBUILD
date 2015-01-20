@@ -21,11 +21,13 @@ makedepends=('gpm' 'python2' 'python' 'ruby' 'libxt' 'desktop-file-utils' 'gtk2'
 source=("${pkgbase}-repo::hg+https://vim.googlecode.com/hg#tag=${_tag}"
         'vimrc'
         'archlinux.vim'
-        'gvim.desktop')
+        'gvim.desktop'
+        'gb_patch.diff')
 sha1sums=('SKIP'
           '15ebf3f48693f1f219fe2d8edb7643683139eb6b'
           '94f7bb87b5d06bace86bc4b3ef1372813b4eedf2'
-          '4a579cf66590d711f49c5dfb4a25e5df116ff7ba')
+          '4a579cf66590d711f49c5dfb4a25e5df116ff7ba'
+          '40452733c4fb990c438b7679ed9e014901f30383')
 
 prepare() {
   cd ${pkgbase}-repo
@@ -35,6 +37,8 @@ prepare() {
     printf 'You are not building the latest revision!\n'
     printf "Consider updating to tag $_latesttag.\n"
   fi
+
+  patch -p1 < ../gb_patch.diff
 
   # define the place for the global (g)vimrc file (set to /etc/vimrc)
   sed -i 's|^.*\(#define SYS_.*VIMRC_FILE.*"\) .*$|\1|' \
