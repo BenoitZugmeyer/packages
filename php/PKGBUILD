@@ -34,7 +34,8 @@ makedepends=('apache' 'imap' 'postgresql-libs' 'libldap' 'postfix'
 source=("http://www.php.net/distributions/${pkgbase}-${pkgver}.tar.xz"
         "http://www.php.net/distributions/${pkgbase}-${pkgver}.tar.xz.asc"
         'php.ini.patch' 'apache.conf' 'php-fpm.conf.in.patch'
-        'logrotate.d.php-fpm' 'php-fpm.service' 'php-fpm.tmpfiles')
+        'logrotate.d.php-fpm' 'php-fpm.service' 'php-fpm.tmpfiles'
+        'php-fpm-log-limit.patch')
 md5sums=('541a480e1f8747219074c99f3e9edbcc'
          'SKIP'
          '942f9d8af9bcab2487ca710ef42ef1de'
@@ -42,7 +43,8 @@ md5sums=('541a480e1f8747219074c99f3e9edbcc'
          '16b5e2e4da59f15bea4c2db78a7bc8dc'
          '25bc67ad828e8147a817410b68d8016c'
          'cc2940f5312ba42e7aa1ddfab74b84c4'
-         'c60343df74f8e1afb13b084d5c0e47ed')
+         'c60343df74f8e1afb13b084d5c0e47ed'
+         '380e07578c5f131a2f6686d89f48cd4a')
 validpgpkeys=('6E4F6AB321FDC07F2C332E3AC2BF0BC433CFC8B3')
 
 prepare() {
@@ -50,6 +52,7 @@ prepare() {
 
 	patch -p0 -i ${srcdir}/php.ini.patch
 	patch -p0 -i ${srcdir}/php-fpm.conf.in.patch
+	patch -p0 -i ${srcdir}/php-fpm-log-limit.patch
 	# Just because our Apache 2.4 is configured with a threaded MPM by default does not mean we want to build a ZTS PHP.
 	# Let's supress this behaviour and build a SAPI that works fine with the prefork MPM.
 	sed '/APACHE_THREADED_MPM=/d' -i sapi/apache2handler/config.m4 -i configure

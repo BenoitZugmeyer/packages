@@ -1,0 +1,11 @@
+--- sapi/fpm/fpm/zlog.c 2015-02-20 16:34:02.035510458 +0100
++++ sapi/fpm/fpm/zlog_mod.c     2015-02-20 16:34:11.851961035 +0100
+@@ -17,7 +17,7 @@
+ #include "zlog.h"
+ #include "fpm.h"
+ 
+-#define MAX_LINE_LENGTH 1024
++#define MAX_LINE_LENGTH 10240
+ 
+ static int zlog_fd = -1;
+ static int zlog_level = ZLOG_NOTICE;

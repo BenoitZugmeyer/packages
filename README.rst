@@ -19,6 +19,12 @@ awesome
 This is the `AUR awesome-git PKGBUILD`_ targeting the `Elv13 useless_gap_v1`_ branch (3.5.6 branch
 with a patch to add gaps between clients).
 
+php
+===
+
+php-fpm uses a hardcoded max length for messages logs. A small patch raises
+this limit from 1024 to 10240.
+
 .. _Unite: https://github.com/Shougo/unite.vim
 .. _issue 798: https://github.com/Shougo/unite.vim/issues/798
 .. _official bug report: https://groups.google.com/forum/#!searchin/vim_dev/GC/vim_dev/DBYOdHQWvqY/1WH04_dwETIJ
