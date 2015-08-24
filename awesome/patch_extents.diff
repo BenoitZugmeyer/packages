@@ -1,0 +1,19 @@
+diff --git ewmh.c ewmh.c
+index 04386c5..be480e8 100755
+--- ewmh.c
++++ ewmh.c
+@@ -110,10 +110,10 @@ ewmh_client_update_frame_extents(lua_State *L)
+     client_t *c = luaA_checkudata(L, 1, &client_class);;
+     uint32_t extents[4];
+ 
+-    extents[0] = c->border_width + c->titlebar[CLIENT_TITLEBAR_LEFT].size;
+-    extents[1] = c->border_width + c->titlebar[CLIENT_TITLEBAR_RIGHT].size;
+-    extents[2] = c->border_width + c->titlebar[CLIENT_TITLEBAR_TOP].size;
+-    extents[3] = c->border_width + c->titlebar[CLIENT_TITLEBAR_BOTTOM].size;
++    extents[0] = c->titlebar[CLIENT_TITLEBAR_LEFT].size;
++    extents[1] = c->titlebar[CLIENT_TITLEBAR_RIGHT].size;
++    extents[2] = c->titlebar[CLIENT_TITLEBAR_TOP].size;
++    extents[3] = c->titlebar[CLIENT_TITLEBAR_BOTTOM].size;
+ 
+     xcb_change_property(globalconf.connection, XCB_PROP_MODE_REPLACE,
+             c->window, _NET_FRAME_EXTENTS, XCB_ATOM_CARDINAL, 32, 4, extents);
